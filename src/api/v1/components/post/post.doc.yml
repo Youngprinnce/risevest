@@ -1,0 +1,29 @@
+paths:
+  /v1/posts/{postId}/comments:
+    post:
+      tags:
+        - Post
+      summary: Create a new comment
+      description: Create a new comment
+      security:
+        - bearerAuth: [ ]
+      parameters:
+        - in: path
+          name: postId
+          required: true
+          schema:
+            type: string
+          description: Post id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content]
+              properties:
+                content:
+                  type: string
+                  description: Comment content
+      responses:
+        201:
+          description: Comment created
