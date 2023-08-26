@@ -17,10 +17,10 @@ export default ({ app }: { app: Application }) => {
       description: 'Backend Server - API Documentation',
     },
     servers: [
-      NODE_ENV === 'development' ? {
+      {
         url: `http://localhost:${PORT}`,
         description: 'Development Server'
-      } : {
+      }, {
         url: baseUrl,
         description: 'Live Server'
       },
