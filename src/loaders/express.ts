@@ -15,7 +15,7 @@ export default ({app}: {app: Application}) => {
   app.use(timedout);
   app.use(express.json());
   app.use(cookieParser());
-  app.disable('x-powered-by');
+  //app.disable('x-powered-by');
   app.use(bodyParser.json({limit: "20mb"}));
   app.use(express.urlencoded({extended: false}));
   app.use(cors({origin: true, credentials: true}));

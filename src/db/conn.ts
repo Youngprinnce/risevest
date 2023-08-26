@@ -1,8 +1,13 @@
 import pg from 'pg';
 import fs from 'fs';
 
+console.log('process.env.DATABASE_URL', process.env.DATABASE_URL);
+
 export const client = new pg.Client({
   connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 const executeSQLFile = async (filePath: string) => {
