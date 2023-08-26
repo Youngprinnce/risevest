@@ -4,7 +4,7 @@ const signup = [
   check('name').trim().isLength({min: 1}).withMessage('name cannot be empty.'),
   check('password').matches(/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/)
     .withMessage('Password must contain 8 characters and at least 1 number, 1 uppercase, and 1 lowercase letter.'),
-  check('email', 'Email is required.').normalizeEmail(
+  check('email', 'Email is required.').notEmpty().normalizeEmail(
   {
     all_lowercase: true, gmail_lowercase: true,
     yahoo_remove_subaddress: false, icloud_lowercase: true, icloud_remove_subaddress: false,
@@ -16,7 +16,7 @@ const signup = [
 
 const signin = [
   check('password').not().isEmpty().withMessage('Password cannot be empty'),
-  check('email', 'Email is required.').normalizeEmail(
+  check('email', 'Email is required.').notEmpty().normalizeEmail(
   {
     all_lowercase: true, gmail_lowercase: true,
     yahoo_remove_subaddress: false, icloud_lowercase: true, icloud_remove_subaddress: false,

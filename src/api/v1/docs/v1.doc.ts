@@ -18,12 +18,13 @@ export default ({ app }: { app: Application }) => {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
-        description: 'Development Server'
-      }, {
         url: baseUrl,
         description: 'Live Server'
       },
+      {
+        url: `http://localhost:${PORT}`,
+        description: 'Development Server'
+      }
     ],
     components: {
       securitySchemes: {

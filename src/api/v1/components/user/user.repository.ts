@@ -87,33 +87,3 @@ export = {
     }
   }
 };
-
-      // const sql = `
-      //   SELECT
-      //     u.id AS userId,
-      //     u.name AS username,
-      //     p.id AS postId,
-      //     p.title AS postTitle,
-      //     c.id AS commentId,
-      //     c.content AS commentContent
-      //   FROM
-      //     users u
-      //   JOIN posts p ON u.id = p.userId
-      //   LEFT JOIN comments c ON p.id = c.postId
-      //   JOIN (
-      //     SELECT userId, COUNT(*) AS postCount
-      //     FROM posts
-      //     GROUP BY userId
-      //     ORDER BY postCount DESC
-      //     LIMIT 3
-      //   ) top_users ON u.id = top_users.userId
-      //   WHERE
-      //     c.id = (
-      //       SELECT id
-      //       FROM comments
-      //       WHERE postId = p.id
-      //       ORDER BY createdAt DESC
-      //       LIMIT 1
-      //     )
-      //   ORDER BY top_users.postCount DESC;
-      // `;

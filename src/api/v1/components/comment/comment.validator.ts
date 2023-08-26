@@ -4,11 +4,10 @@ const createComment = [
   check('postId')
     .isUUID(4)
     .withMessage('postId must be a valid UUID version 4.'),
-  body('content')
+  body('content', 'content is required.')
+    .notEmpty()
     .isString()
-    .not()
-    .isEmpty()
-    .withMessage('Content cannot be empty.')
+    .withMessage('Content must be a string.')
 ];
 
 export = { createComment }

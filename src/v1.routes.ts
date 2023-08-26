@@ -31,8 +31,6 @@ const mountRoutes = () => {
     }
   }
 
-  console.log('routes', routes)
-
   return routes;
 }
 
