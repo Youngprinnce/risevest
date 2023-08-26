@@ -8,15 +8,9 @@ const mountRoutes = () => {
   // Create empty array to store routes
   const routes: { url: string; route: Router }[]= [];
 
-  let files: string[] = [];
-
   // Store all files that end with .route.ts in the specified directory and subdirectories
-  if(__dirname.includes('build')) {
-    files = glob.sync(`build/src/api/v1/**/*.route.js`);
-  } else {
-    files = glob.sync(`src/api/v1/**/*.route.ts`);
-  }
-
+  const files = glob.sync(`src/api/v1/**/*.route.ts`);
+  
   // Iterate over each file
   for (let routeFilename of files) {
     try {
@@ -36,6 +30,8 @@ const mountRoutes = () => {
       console.error(`Error loading route file: ${routeFilename}:`, error);
     }
   }
+
+  console.log('routes', routes)
 
   return routes;
 }
